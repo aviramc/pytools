@@ -1,0 +1,2 @@
+External libs that PyTools is dependant on but cannot be installed through PyPi:
+  - schlamar urllib3 - https://github.com/schlamar/urllib3
