@@ -16,8 +16,10 @@ STANDARD_HTTP_METHODS = ["GET", "POST", "HEAD", "PUT", "DELETE", "OPTIONS", "TRA
 WEBDAV_METHODS = ["COPY", "MOVE", "LOCK", "MKCOL", "PROPFIND", "PROPPATCH", "UNLOCK", "PATCH"]
 HTTP_METHODS = STANDARD_HTTP_METHODS + WEBDAV_METHODS
 
+HTTP_SUCCESS_CODE = 200
+
 # Argh... Too many arguments
-def perform_request(url, proxy=None, method='GET', request_body_hack=False, verify_status=200, pool_manager=None, **kw):
+def perform_request(url, proxy=None, method='GET', request_body_hack=False, verify_status=HTTP_SUCCESS_CODE, pool_manager=None, **kw):
     if pool_manager is None:
         http = create_pool_manager(proxy)
     else:
