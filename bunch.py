@@ -8,6 +8,7 @@ class bunch(object):
         return self.repr_with_recursion_lock()
 
     def repr_with_recursion_lock(self, instances=None):
+        # TODO: The recursion lock should be better (a list containing a bunch won't really be protected).
         if instances is None:
             instances = []
         if self in instances:
@@ -32,3 +33,8 @@ class bunch(object):
 
     def __setattr__(self, name, value):
         self.attributes[name] = value
+
+    def __delattr__(self, name):
+        if name not in self.attributes:
+            raise AttributeError('%s not a member of %s' % (name, self.get_name()))
+        self.attributes.pop(name)
