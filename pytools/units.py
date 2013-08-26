@@ -1,4 +1,5 @@
 from collections import defaultdict
+import re
 
 class PatternNotFound(Exception):
     pass
