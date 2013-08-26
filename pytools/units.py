@@ -24,5 +24,6 @@ def parse_time_units_string(time_units_string):
     return parse_units_string(time_units_string, defaultdict(lambda : 1,
                                                              {"s" : 1,
                                                               "m" : 60,
-                                                                    "h" : 60 * 60,
+                                                              "h" : 60 * 60,
+                                                              "d" : 60 * 60 * 24,
                                                               }))
