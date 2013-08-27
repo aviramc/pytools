@@ -33,8 +33,12 @@ def perform_request(url, proxy=None, method='GET', request_body_hack=False, veri
         assert verify_status == response.status, "Expected status %d, received %d" % (verify_status, response.status)
     return response
 
-def make_url(scheme, server, path):
-    return "%s://%s/%s" % (scheme, server, path)
+def make_url(scheme, server, port=None, path=''):
+    if port is None:
+        port_string = ""
+    else:
+        port_string = ":%d" % (port, )
+    return "%s://%s%s/%s" % (scheme, server, port_string, path)
 
 def create_pool_manager(proxy=None, **kw):
     if proxy is not None:
