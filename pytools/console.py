@@ -42,6 +42,15 @@ def color_print(text, foreground='white', background='black', style='nothing', n
     else:
         print _format_string(text, foreground, background, style),
 
+def print_all_colors():
+    for foreground in foreground_colors.iterkeys():
+        for background in background_colors.iterkeys():
+            for text_style in text_styles.iterkeys():
+                color_print("%s %s %s" % (foreground, background, text_style),
+                            foreground=foreground,
+                            background=background,
+                            style=text_style)
+
 def _format_string(text, foreground, background, style):
     return '%s%s%s' % (_format_start(foreground, background, style), text, _format_reset())
 
