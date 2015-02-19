@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(
-    name='PyTools',
+    name='pytools',
     version='0.1.0',
     author='aviramc',
     author_email='',
